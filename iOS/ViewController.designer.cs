@@ -16,11 +16,42 @@ namespace DeliveriesA.iOS
         [Outlet]
         UIKit.UIButton Button { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField emailTextField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField passwordTextField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton registerButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton signinButton { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
-            if (Button != null) {
-                Button.Dispose ();
-                Button = null;
+            if (emailTextField != null) {
+                emailTextField.Dispose ();
+                emailTextField = null;
+            }
+
+            if (passwordTextField != null) {
+                passwordTextField.Dispose ();
+                passwordTextField = null;
+            }
+
+            if (registerButton != null) {
+                registerButton.Dispose ();
+                registerButton = null;
+            }
+
+            if (signinButton != null) {
+                signinButton.Dispose ();
+                signinButton = null;
             }
         }
     }
