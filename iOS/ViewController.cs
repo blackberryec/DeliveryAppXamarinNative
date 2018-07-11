@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Foundation;
 using UIKit;
 
 namespace DeliveriesA.iOS
@@ -15,6 +15,17 @@ namespace DeliveriesA.iOS
         {
             base.ViewDidLoad();
 
+        }
+
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            base.PrepareForSegue(segue, sender);
+
+            if (segue.Identifier == "registerSegue")
+            {
+                var destinationViewController = segue.DestinationViewController as RegisterViewController;
+                destinationViewController.emailAddress = emailTextField.Text;
+            }
         }
 
         public override void DidReceiveMemoryWarning()

@@ -32,6 +32,9 @@ namespace DeliveriesA.Droid
             registerButton = FindViewById<Button>(Resource.Id.registerUserButton);
 
             registerButton.Click += RegisterButton_Click;
+
+            string email = Intent.GetStringExtra("email");
+            emailEditText.Text = email;
         }
 
         void RegisterButton_Click(object sender, EventArgs e)
