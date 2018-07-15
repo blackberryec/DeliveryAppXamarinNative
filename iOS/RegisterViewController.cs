@@ -17,6 +17,34 @@ namespace DeliveriesA.iOS
             base.ViewDidLoad();
 
             emailTextField.Text = emailAddress;
+
+            registerButton.TouchUpInside += RegisterButton_TouchUpInside;
+
+        }
+
+        private async void RegisterButton_TouchUpInside(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(passwordTextField.Text))
+            {
+                if (passwordTextField.Text == confirmPasswordTextField.Text)
+                {
+                    var user = new User()
+                    {
+                        Email = emailTextField.Text,
+                        Password = passwordTextField.Text
+                    };
+
+                    await AppDelegate.MobileService.GetTable<User>().InsertAsync(user);
+
+                    var alert = UIAlertController.Create("Success", "User inserted", UIAlertControllerStyle.Alert);
+
+                    alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+                    PresentViewController(alert, true, null);
+
+                    return;
+                }
+            }
         }
     }
 }

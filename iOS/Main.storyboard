@@ -138,7 +138,7 @@
                         <outlet property="emailTextField" destination="501" id="name-outlet-501"/>
                         <outlet property="passwordTextField" destination="493" id="name-outlet-493"/>
                         <outlet property="confirmPasswordTextField" destination="488" id="name-outlet-488"/>
-                        <outlet property="buttonRegister" destination="507" id="name-outlet-507"/>
+                        <outlet property="registerButton" destination="507" id="name-outlet-507"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="480" userLabel="First Responder" sceneMemberID="firstResponder"/>

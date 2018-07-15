@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Microsoft.WindowsAzure.MobileServices;
 using UIKit;
 
 namespace DeliveriesA.iOS
@@ -9,6 +10,8 @@ namespace DeliveriesA.iOS
     public class AppDelegate : UIApplicationDelegate
     {
         // class-level declarations
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://xamarinnativedeliveriesapp.azurewebsites.net");
+
 
         public override UIWindow Window
         {
@@ -20,6 +23,8 @@ namespace DeliveriesA.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+            CurrentPlatform.Init();
 
             return true;
         }

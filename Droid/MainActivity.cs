@@ -2,12 +2,18 @@
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace DeliveriesA.Droid
 {
     [Activity(Label = "DeliveriesA", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
+        public static MobileServiceClient MobileService =
+            new MobileServiceClient(
+            "https://xamarinnativedeliveriesapp.azurewebsites.net"
+        );
+
         EditText emailEditText, passwordEditText;
         Button signInButton, registerButton;
 
