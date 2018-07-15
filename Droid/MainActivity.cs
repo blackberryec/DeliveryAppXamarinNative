@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using Microsoft.WindowsAzure.MobileServices;
+using System.Linq;
 
 namespace DeliveriesA.Droid
 {
@@ -34,9 +35,28 @@ namespace DeliveriesA.Droid
 
         }
 
-        void SignInButton_Click(object sender, System.EventArgs e)
+        private async void SignInButton_Click(object sender, System.EventArgs e)
         {
-            
+            var email = emailEditText.Text;
+            var password = passwordEditText.Text;
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                Toast.MakeText(this, "Email and password cannot null", ToastLength.Long).Show();
+            }
+            else
+            {
+                var user = (await MobileService.GetTable<User>().Where(u => u.Email == email && u.Password == password).ToListAsync()).FirstOrDefault();
+
+                if (user.Password == password)
+                {
+                    Toast.MakeText(this, "Login successfull", ToastLength.Long).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Incorrect password", ToastLength.Long).Show();
+                }
+            }
         }
 
         void RegisterButton_Click(object sender, System.EventArgs e)
